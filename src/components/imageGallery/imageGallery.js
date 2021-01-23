@@ -103,8 +103,13 @@ class ImageGallery extends Component {
   };
 
   handleOpenModal = e => {
+    if (e.target === e.currentTarget) {
+      return;
+    }
+
     const { photos } = this.state;
     const tags = e.target.attributes.src.value;
+
     const currentPhoto = photos.find(photo =>
       photo.webformatURL.includes(tags),
     );
